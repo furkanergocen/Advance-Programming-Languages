@@ -1,0 +1,76 @@
+
+<html lang="en-US"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <style> 
+      body { max-width: 440px; }
+      #url { width: 190px; }
+      span, #url { color: rgb(0, 0, 255)
+
+        }
+    
+
+    </style>
+    </head>
+  
+    <body>
+  <h2>Battery Status</h2>
+  <p>
+    Remaining Time : <span id=remaining>??</span>
+  </p>
+  <div id="charge" style="color: rgb(255, 0, 34)">Charging</div>
+  
+  <progress id="charging" value="0" max="100" style="color: rgb(0, 251, 255)" ></progress>
+  <span id="percent">
+  </span>
+  <h2> Online  Status</h2>
+  <p id="online">Connected * Online</p>
+  <h2>Keyboard</h2>
+  <span id="Keyboard">
+  </span><span id="key"></span>6
+  <br><br>
+  <b>Sample code</b>
+  <pre id="sample"> </pre>
+  <hr>
+  
+  <script>
+    "use strict";
+    function init() {
+    //complete the code below
+    navigator.getBattery().then(b => {
+      let levelChange = () => {
+        percent.innerText =b.level*100+' % ';
+        charging.value = 100*b.level;
+      }
+      levelChange();
+      b.onlevelchange = levelChange;
+      let chargeChange = () => { charge.innerText = (b.charging) ?
+          "Charging..." : "Discharging...";
+      }
+      chargeChange();
+      b.onchargingchange = chargeChange;
+    })
+    online.innerText = (window.navigator.onLine)?
+        "Connected  * Online" :
+      "Disconnected  * Offline";
+      window.addEventListener("online", () => {
+        online.innerText = "Connected * Online";
+      });
+      window.addEventListener("offline", () => {
+        online.innerText = "Disconnected * Offline";
+      });
+    window.onkeydown = (evt) => {
+      key.innerText = evt.key;
+    };
+    window.onkeyup = (evt) => {
+      key.innerText = "   ";
+    };
+    navigator.getBattery().then(b =>
+                remaining.innerText = Math.floor(b.dischargingTime / (3600)) + ":" + b.dischargingTime % 60 + " remaining")
+  }
+    sample.innerText = init;
+    init();
+  </script>
+
+  </body></html>
