@@ -1,0 +1,57 @@
+body{
+    max-width: 600px;    
+    }
+   
+    .button_Start {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        position: absolute;
+
+        left: 30px;
+        top: 80px;
+        
+    }
+    .button_Pause {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        
+        text-align: left;
+        position: absolute;
+
+        left: 30px;
+        top: 120px;
+        
+
+
+    }
+    .button_Stop {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        position: absolute;
+
+        left: 30px;
+        top: 160px;
+
+    }
+    .button_Next {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        text-align: left;
+        position: absolute;
+
+        left: 30px;
+        top: 200px;
+
+    }
+    .button_Prev {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        position: absolute;
+
+        left: 30px;
+        top: 240px;
+
+    }
