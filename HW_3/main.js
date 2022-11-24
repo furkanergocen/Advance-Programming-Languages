@@ -25,12 +25,12 @@ var i = 1;
 var y = 0;
 var test;
 
-var kontrol=0;
+var temp=0;
 
 btnPause.addEventListener("click", function(){
-    if(kontrol==0){
+    if(temp==0){
     clearInterval(test);
-        kontrol=1;
+        temp=1;
     }
     else{
         test = setInterval(function(){
@@ -41,7 +41,7 @@ btnPause.addEventListener("click", function(){
             c.clearRect(275,275,275,275);
             c.drawImage(images[i],275,275,275,275);
         },150)
-        kontrol=0;
+        temp=0;
     }
 });
 
