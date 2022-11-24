@@ -1,11 +1,5 @@
-var canvas = document.querySelector('canvas');
-var c = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 var images = [];
 images.length = 25;
-
 
 async function getData(){
     for(var i = 1 ; i < images.length ; i++){
@@ -18,6 +12,11 @@ async function getData(){
     }
 
 }
+var canvas = document.querySelector('canvas');
+var c = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 getData();
 
