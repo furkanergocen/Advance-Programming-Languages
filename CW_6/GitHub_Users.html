@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -13,12 +12,9 @@
             width: 15px;
             height: 15px;
         }
-
     </style>
 </head>
-
 <body>
-
     <h2 id=title></h2>
     <input type=text id=usr value=furkanergocen onChange="readUser()">
     <p id=out></p>
@@ -27,7 +23,6 @@
     <pre id=sample></pre>
     <hr />
     </p>
-
     <script>
         "use strict";
         function error(t) {
@@ -49,12 +44,10 @@
             out.innerHTML = '';
             let imgElmnt = document.createElement("img");
             imgElmnt.src = u.avatar_url
-
             //add avatar
             imgElmnt.style = "width:200px;height:200px;"
             out.appendChild(imgElmnt); 
             out.innerHTML += BR;
-
             //add name
             let infoElement = u.name || u.login;
             infoElement += BR;
@@ -65,21 +58,17 @@
             else
                 infoElement += 'Not found'.fontcolor("red");
             infoElement += BR;
-
             //add location
             infoElement += '<img src="Icons/location.png" >';
             if (u.location) infoElement += u.location;
             else
                 infoElement += 'Not found'.fontcolor("red");
             infoElement += BR;
-
-           
             infoElement += '<img src="Icons/link.png">';
             if (u.blog) infoElement += u.blog;
             else
                 infoElement += 'Not found'.fontcolor("red");
                 out.innerHTML += infoElement + BR;
-
             //add GitHub link  
             let linkElement = document.createElement("a")
             linkElement.target = "NewTab"
