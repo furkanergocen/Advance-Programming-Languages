@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/JS/images/JS.png">
+    <title>GitHub Users</title>
+  <style>
+    body {
+        max-width: 440px;
+        font-size: 18px
+    }
+    img {
+        padding-right: 12px; 
+        width: 420px;
+        float: left;
+    }
+    pre { overflow-x: auto; }
+    #out { color: rgb(0, 0, 0); }
+    #err { color: red; }
+    #repoList { 
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: smaller;
+        color: initial;
+    }
+    #lim {
+        position: absolute;
+        top: 40px; right: 5px;
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: smaller;
+    }
+  </style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1040.0" data-gr-ext-installed="">
+  
+  <h2 id="title">GitHub Users API</h2>
+  <input type="text" id="usr" value="furkanergocen" onchange="readUser()">
+  <p id="out"><img src="https://avatars.githubusercontent.com/u/59336466?v=4" align="center"><br><b>Furkan Ergöçen</b><br>furkanergocen<br><br>null<br><br><a href="" target="NewTab"></a></p>
+  <hr>
+  <hr>
+<b>Sample code</b>
+<pre id=sample aria-setsize="10px"></pre>
+<hr>
+
+<script>
+"use strict";
+function error(e) {
+    err.innerText = e; console.error(e)
+    out.hidden = 1; err.hidden = 0
+    showRateLimit()
+}
+function exception(s) {
+  switch (s) {
+    case 403:
+      throw 'Rate limit exceeded'
+    case 404:
+      throw usr.value+' not found'
+    default:
+      throw 'Status '+s
+  }
+}
+async function toJSON(url) {
+  try {
+    let r = await fetch(url)
+    if (!r.ok) exception(r.status)
+    return r.json()
+  } catch (e) {
+    error(e)
+  }
+}
+async function readUser() {
+    const URL = "https://api.github.com/users/"
+    let u = await toJSON(URL+usr.value)
+    if (!u || !u.login) return
+    out.hidden = 0; err.hidden = 1
+    //start with the avatar
+    avatar.src = u.avatar_url
+    //name and location
+    let s = (u.name || u.login)
+    if (u.location) s += ', '+u.location
+    repoName.innerText = s; console.log(s)
+    //link to GitHub 
+    let h = "github.com/"+u.login
+    repoLink.href = "https://"+h
+    repoLink.innerText = h
+    //repo count and repo names
+    let n = u.public_repos
+    repoCount.innerText = n
+    let b = n>0? await toJSON(URL+u.login+"/repos") : []
+    repoList.innerText = b.map(x => x.name).join(", ")
+    showRateLimit()
+}
+async function showRateLimit() {
+    const LIM="https://api.github.com/rate_limit"
+    let {rate} = await toJSON(LIM)
+    lim.innerText = rate.used+'/'+rate.limit
+}
+      let h = "github.com/"+u.login
+      out.innerHTML +="Link :"+ 
+      `<a href="https://${h}" target=NewTab>${h}</a>`
+      title.innerText = document.title
+      out.innerText = "Reading data"
+      readUser()
+      sample.innerText = toJSON+ ' \n ' +readUser + ' \n ' 
+</script>
+<script src="/JS/navbar.js"></script>
+
+</body>
+</html>
