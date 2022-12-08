@@ -147,11 +147,10 @@ async function askWeather() {
         console.log(hh, yy, 'Wind '+data.wind.deg+'° '+WIND[d])
    
     "use strict";
-    function draw() { //on canvas
-    var canvas1 = document.getElementById("canvas");
+    function canvasWidget() { //on canvas
+    
+        var canvas1 = document.getElementById("canvas");
     const canvasDetail = canvas1.getContext("2d");
-  
- 
     canvasDetail.beginPath(); canvasDetail.lineWidth = 5;
     canvasDetail.fillStyle = "yellow"; 
     canvasDetail.strokeStyle = "black";
@@ -160,11 +159,8 @@ async function askWeather() {
     canvasDetail.fillStyle = "black";  
     canvasDetail.fillText(text1,10,55);
     
-
-    var canvas2 = document.getElementById("canvas2");
+        var canvas2 = document.getElementById("canvas2");
     const canvasSun = canvas2.getContext("2d");
-   
- 
     canvasSun.beginPath(); canvasSun.lineWidth = 5;
     canvasSun.fillStyle = "yellow"; 
     canvasSun.strokeStyle = "black";
@@ -176,9 +172,9 @@ async function askWeather() {
 function doZoom(event) {
 	event.preventDefault();
 	zoom.to({ element: event.target, pan: false });
-}draw();
+}canvasWidget();
    
-  sample.innerText=draw;
+  sample.innerText=canvasWidget;
 }
 
 function showIcon(i) {
