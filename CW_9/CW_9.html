@@ -6,7 +6,7 @@
     <link href="https://maeyler.github.io/JS/sss/inspector.css" 
           rel="stylesheet" media="all">
     <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
-    <link rel="icon" href="../images/icon192.png">    <title>Image Inspector </title>
+    <link rel="icon" href="../images/icon192.png">    
     <title>Image Inspector </title>
 
   <style>
@@ -35,7 +35,7 @@
 <body>
 <div>
   <canvas id="canvas"></canvas>
-  <span id=color>{x,y} {R,G,B}</span>
+  <h1 id=color>{x,y} {R,G,B}</h1>
 </div>
 <div>
   <div id=sss></div>
@@ -165,7 +165,7 @@ class Graph extends Menu {
 function init() {
     MENU = new Graph(); //global
     display(MENU); display(cx); display(img);
-    MENU.loadImage("https://blm305.github.io/2021/images/36419031.jpg")
+    MENU.loadImage("../CW_9/Icons/icardi.jpeg")
 }
     canvas.addEventListener('mousemove', pick);
     try {
