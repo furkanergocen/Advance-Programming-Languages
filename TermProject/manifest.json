@@ -1,0 +1,13 @@
+{
+    "name": "Calculator",
+    "start_url": "TermProject.html",
+    "display": "standalone",
+    "background_color": "blue",
+    "icons": [
+      {
+        "src": "back.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
