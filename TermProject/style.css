@@ -1,12 +1,12 @@
     body {
-        max-width: 600px;
+        max-width: 400px;
         padding: 0;
         margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 55vh;
-        min-width: 33;
+        min-height: 45vh;
+        min-width: 42;
         user-select: none;
         background: #ffffff;
         text-align: left;
@@ -28,8 +28,8 @@
         flex-direction: column;
     }
     .row button {
-        width: 60px;
-        height: 30px;
+        width: 40px;
+        height: 20px;
         font-size: 16px;
         border: none;
         margin: 5px;
@@ -41,7 +41,7 @@
         background: #fff;
     }
     .display #screen {
-        width: 340px;
+        width: 300px;
         height: 50px;
         font-size: 35px;
         outline: none;
