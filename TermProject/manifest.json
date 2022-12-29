@@ -1,6 +1,6 @@
 {
     "name": "Calculator",
-    "start_url": "TermProject.html",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "blue",
     "icons": [
@@ -11,3 +11,6 @@
       }
     ]
   }
+
+
+  
